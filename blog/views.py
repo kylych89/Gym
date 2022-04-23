@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect
 from .forms import ContactForm
-from .models import Message, AboutUs, Classes
+from .models import Message, AboutUs, Class
 
 
 
 def home(request):
     about = AboutUs.objects.all()
-    train_list = Classes.objects.all()
+    train_list = Class.objects.all()
     context = {
         'about_list':about,
          'train_list':train_list

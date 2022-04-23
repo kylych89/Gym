@@ -11,7 +11,11 @@ class AboutUs(models.Model):
     def __str__(self) -> str:
         return self.name
 
-class Classes(models.Model):
+    class Meta: 
+        verbose_name = 'About Us'
+        verbose_name_plural = 'About Us'
+
+class Class(models.Model):
     class_name = models.CharField(max_length=255)
     trainer_name = models.ForeignKey(AboutUs, on_delete=models.CASCADE)
     class_image = models.ImageField()
@@ -21,9 +25,19 @@ class Classes(models.Model):
     def __str__(self) -> str:
         return self.class_name
 
+    class Meta: 
+        verbose_name = 'Class'
+        verbose_name_plural = 'Classes'
+
 class Schedules(models.Model):
-    name = models.ForeignKey(Classes, on_delete=models.CASCADE)
-    time = models.DateTimeField()
+    name = models.OneToOneField(Class, on_delete=models.CASCADE, unique=True)
+    date = models.DateField()
+    time_begining = models.TimeField()
+    time_ending = models.TimeField()
+
+
+    def __str__(self) -> str:
+        return str(self.name)
 
     class Meta: 
         verbose_name = 'Schedules'
@@ -38,6 +52,10 @@ class Contact(models.Model):
     def __str__(self) -> str:
         return self.title
 
+    class Meta: 
+        verbose_name = 'Contact'
+        verbose_name_plural = 'Contacts'
+
 
 class Message(models.Model):
     name = models.CharField(max_length=100)
@@ -46,3 +64,8 @@ class Message(models.Model):
 
     def __str__(self):
         return self.name
+
+
+    class Meta: 
+        verbose_name = 'Message'
+        verbose_name_plural = 'Messages'

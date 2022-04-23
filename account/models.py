@@ -7,7 +7,7 @@ class User(models.Model):
     message = models.TextField()
 
 
-    def str(self) -> str:
+    def __str__(self) -> str:
         return self.username
 
 
