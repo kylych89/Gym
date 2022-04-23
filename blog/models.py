@@ -1,3 +1,4 @@
+from cgitb import text
 from django.db import models
 
 class AboutUs(models.Model):
@@ -29,11 +30,26 @@ class Class(models.Model):
         verbose_name = 'Class'
         verbose_name_plural = 'Classes'
 
+DAY_CHOICES = [
+    ('1', 'Freshman'),
+    ('2', 'Sophomore'),
+    ('3', 'Junior'),
+    ('4', 'Senior'),
+    ('5', 'Graduate'),
+    ('6', 'Graduate'),
+]
+TIME_CHOICES = [
+    ('9', 'Freshman'),
+    ('11', 'Sophomore'),
+    ('14', 'Junior'),
+    ('18', 'Senior'),
+]
+
 class Schedules(models.Model):
-    name = models.OneToOneField(Class, on_delete=models.CASCADE, unique=True)
-    date = models.DateField()
-    time_begining = models.TimeField()
-    time_ending = models.TimeField()
+    name = models.CharField(max_length=255)
+    day = models.CharField(choices=DAY_CHOICES, max_length=255)
+    time_begining = models.CharField(choices=TIME_CHOICES, max_length=255)
+    text = models.CharField(max_length=355)
 
 
     def __str__(self) -> str:
