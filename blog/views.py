@@ -11,7 +11,7 @@ def home(request):
     context = {
         'about_list':about,
         'train_list':train_list,
-        'shed_liist': shed
+        'shed_list': shed
     }
     return render(request, 'index.html', context)
 

@@ -35,22 +35,18 @@ DAY_CHOICES = [
     ('2', 'Sophomore'),
     ('3', 'Junior'),
     ('4', 'Senior'),
-    ('5', 'Graduate'),
+    ('5', 'beshnisa'),
     ('6', 'Graduate'),
 ]
-TIME_CHOICES = [
-    ('9', 'Freshman'),
-    ('11', 'Sophomore'),
-    ('14', 'Junior'),
-    ('18', 'Senior'),
-]
+
 
 class Schedules(models.Model):
     name = models.CharField(max_length=255)
     day = models.CharField(choices=DAY_CHOICES, max_length=255)
-    time_begining = models.CharField(choices=TIME_CHOICES, max_length=255)
+    time_begining = models.TimeField()
     text = models.CharField(max_length=355)
 
+    
 
     def __str__(self) -> str:
         return str(self.name)
