@@ -237,83 +237,48 @@ https://www.tooplate.com/view/2119-gymso-fitness
                                   <th>Пятница</th>
                                   <th>Суббота</th>
                               </thead>
-
+                              
                               <tbody>
+                                  {% for i in shed_list%}
                                   <tr>
-                                     <td><small>7:00 утра</small></td>
+                                     <td><small>{{ i.time_begining }}</small></td>
+                                     
                                      <td>
-                                         <strong>Кардио</strong>
-                                         <span>7:00 утра - 9:00 утра</span></td>
+                                        {% if i.day == '1' %}
+                                         <strong>{{ i.name }}</strong>
+                                         <span>{{ i.text }}</span></td>
+                                         {% endif %}
                                      <td>
-                                         <strong>Силовой фитнес</strong>
-                                         <span>7:00 утра - 9:00 утра</span>
+                                        {% if i.day == '2' %}
+                                        <strong>{{ i.name }}</strong>
+                                        <span>{{ i.text }}</span></td>
+                                        {% endif %}
                                      </td>
-                                     <td></td>
-                                     <td></td>
                                      <td>
-                                         <strong>Секция йоги</strong>
-                                         <span>7:00 утра - 9:00 утра</span>
+                                         {% if i.day == '3' %}
+                                        <strong>{{ i.name }}</strong>
+                                        <span>{{ i.text }}</span></td>
+                                        {% endif %}</td>
+                                     <td>
+                                        {% if i.day == '4' %}
+                                        <strong>{{ i.name }}</strong>
+                                        <span>{{ i.text }}</span></td>
+                                        {% endif %}
+                                     </td>
+                                     <td>
+                                        {% if i.day == '5' %}
+                                         <strong>{{ i.name }}</strong>
+                                         <span>{{ i.text }}</span></td>
+                                         {% endif %}
+                                     </td>
+                                     <td>
+                                        {% if i.day == '6' %}
+                                        <strong>{{ i.name }}</strong>
+                                        <span>{{ i.text }}</span></td>
+                                        {% endif %}
                                      </td>
                                   </tr>
-
-                                  <tr>
-                                     <td><small>9:00 утра</small></td>
-                                     <td></td>
-                                     <td></td>
-                                     <td>
-                                         <strong>Бокс</strong>
-                                         <span>8:00 утра - 9:00 утра</span>
-                                     </td>
-                                     <td>
-                                         <strong>Аэробика</strong>
-                                         <span>8:00 утра - 9:00 утра</span>
-                                     </td>
-                                     <td></td>
-                                     <td>
-                                         <strong>Кардио</strong>
-                                         <span>8:00 утра - 9:00 утра</span>
-                                     </td>
-                                  </tr>
-
-                                  <tr>
-                                     <td><small>11:00 утра</small></td>
-                                     <td></td>
-                                     <td>
-                                         <strong>Бокс</strong>
-                                         <span>11:00 утра - 2:00 вечер</span>
-                                     </td>
-                                     <td>
-                                         <strong>Аэробика</strong>
-                                         <span>11:30 утра - 3:30 вечер</span>
-                                     </td>
-                                     <td></td>
-                                     <td>
-                                         <strong>Работа с телом</strong>
-                                         <span>11:50 утра - 5:20 вечер</span>
-                                     </td>
-                                  </tr>
-
-                                  <tr>
-                                     <td><small>2:00 вечер</small></td>
-                                     <td>
-                                         <strong>Бокс</strong>
-                                         <span>2:00 вечер - 4:00 вечер</span>
-                                     </td>
-                                     <td>
-                                         <strong>Пауэрлифтинг</strong>
-                                         <span>3:00 вечер - 6:00 вечер</span>
-                                     </td>
-                                     <td></td>
-                                     <td>
-                                         <strong>Кардио</strong>
-                                         <span>6:00 вечер - 9:00 вечер</span>
-                                     </td>
-                                     <td></td>
-                                     <td>
-                                         <strong>Кроссфит</strong>
-                                         <span>5:00 вечер - 7:00 вечер</span>
-                                     </td>
-                                  </tr>
+                                  {% endfor %}
                               </tbody>
                           </table>
                       </div>

@@ -31,12 +31,12 @@ class Class(models.Model):
         verbose_name_plural = 'Classes'
 
 DAY_CHOICES = [
-    ('1', 'Freshman'),
-    ('2', 'Sophomore'),
-    ('3', 'Junior'),
-    ('4', 'Senior'),
-    ('5', 'beshnisa'),
-    ('6', 'Graduate'),
+    ('1', 'ПОНЕДЕЛЬНИК'),
+    ('2', 'ВТОРНИК'),
+    ('3', 'СРЕДА'),
+    ('4', 'ЧЕТВЕРГ'),
+    ('5', 'ПЯТНИЦА'),
+    ('6', 'СУББОТА'),
 ]
 
 
@@ -46,7 +46,6 @@ class Schedules(models.Model):
     time_begining = models.TimeField()
     text = models.CharField(max_length=355)
 
-    
 
     def __str__(self) -> str:
         return str(self.name)
@@ -54,6 +53,7 @@ class Schedules(models.Model):
     class Meta: 
         verbose_name = 'Schedules'
         verbose_name_plural = 'Schedules'
+        ordering = ['time_begining']
 
 class Contact(models.Model):
     title = models.CharField(max_length=255)
