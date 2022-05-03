@@ -1,5 +1,6 @@
 from cgitb import text
 from django.db import models
+from django.forms import ValidationError
 
 class AboutUs(models.Model):
     name = models.CharField(max_length=255)
@@ -45,6 +46,13 @@ class Schedules(models.Model):
     day = models.CharField(choices=DAY_CHOICES, max_length=255)
     time_begining = models.TimeField()
     text = models.CharField(max_length=355)
+
+
+    def clean(self) -> None:
+        check = Schedules.objects.filter(time_begining=self.time_begining, day=self.day).exists()
+        if check:  
+            raise ValidationError('zanyat!!!')
+        return super().clean()
 
 
     def __str__(self) -> str:
