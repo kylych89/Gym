@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 from pathlib import Path
 import dj_database_url
-import django_heroku
+# import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -143,4 +143,4 @@ DATABASES['default'].update(
     dj_database_url.config(conn_max_age=0, ssl_require=True)
 )
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
